@@ -58,6 +58,8 @@ const punctuation: string[] = [
     ">=",
     "/",
     "!",
+    "+",
+    "*"
 ];
 const arrow: string[] = [
     ">=",
@@ -68,12 +70,20 @@ const arrow: string[] = [
     ">=",
     "!"
 ]
-const symbols: string[] = [
+const openSymbols: string[] = [
     "(",
-    ")",
+
     "{",
-    "}",
+
     "[",
+
+];
+const closeSymbols: string[] = [
+
+    ")",
+
+    "}",
+
     "]",
 ];
 /* const isFunction = (word: string) => {
@@ -94,8 +104,11 @@ const isPunctuation = (word: string) => {
 const isArrow = (word: string) => {
     return arrow.includes(word);
 };
-const isSymbol = (word: string) => {
-    return symbols.includes(word);
+export const isOpenSymbol = (word: string) => {
+    return openSymbols.includes(word);
+};
+export const isCloseSymbol = (word: string) => {
+    return closeSymbols.includes(word);
 };
 
 export const makeToken = (token: string, category: string, isFunction?: boolean, openString?: boolean): Token => {
@@ -110,7 +123,7 @@ export const makeToken = (token: string, category: string, isFunction?: boolean,
         tokenToken = { token: token, category: category };
 
     }
-    console.log("make:", tokenToken);
+    //console.log("make:", tokenToken);
     return tokenToken;
 }
 
@@ -142,7 +155,7 @@ export const TOKENIZE = (currentWord: string): Token[] => {
             //PUNCTUATION
 
             let tokenPrev: Token =
-                makeToken(acumword, "", isFunction, openString);
+                makeToken(acumword, "", false, openString);
 
             tokenArray.push(tokenPrev);
             acumword = "";
@@ -158,7 +171,7 @@ export const TOKENIZE = (currentWord: string): Token[] => {
             let token: Token = //{ token: currentCharacter, category: "punctuation" };
                 makeToken(currentCharacter, "punctuation", false, openString);
             tokenArray.push(token);
-        } else if (isSymbol(currentCharacter)) {
+        } else if (isCloseSymbol(currentCharacter) || isOpenSymbol(currentCharacter)) {
             //                          SYMBOL
             let tokenPrev: Token = //{ token: acumword + " ", category: "" };
                 makeToken(acumword, "", isFunction, openString);
@@ -169,7 +182,7 @@ export const TOKENIZE = (currentWord: string): Token[] => {
                 tokenArray[tokenArray.length - 1].category = "function";
             }
             let token: Token = //{ token: currentCharacter, category: "symbol" };
-                makeToken(currentCharacter, "symbol", isFunction, openString);
+                makeToken(currentCharacter, "symbol", false, openString);
             tokenArray.push(token);
 
 
@@ -228,7 +241,7 @@ export const tokenizeLine = (line: string): Line => {
             }
             i = j;
         } else if (currentChar === " ") {
-            console.log("ws");
+            //console.log("ws");
             superWords.push(acumWord);
             acumWord = "";
             //console.log("wors", acumWord,currentChar);
@@ -237,7 +250,7 @@ export const tokenizeLine = (line: string): Line => {
 
             //i=i+2;
         } else if (currentChar.length === 0) {
-            console.log("empty");
+            //console.log("empty");
             //acumWord += " ";
         } else {
             acumWord += currentChar;
@@ -274,7 +287,7 @@ export const tokenizeLine = (line: string): Line => {
         }
 
     }
-    console.log("xx", tokenArray);
+    //console.log("xx", tokenArray);
     for (let i = 0; i < tokenArray.length; i++) {
         if (tokenArray[i].token === "/") {
 
@@ -310,14 +323,14 @@ export const tokenizeLine = (line: string): Line => {
             } else {
                 token.category = "class-name";
             }
-        } 
-         if ("<" == (token.token)) {
+        }
+        if ("<" == (token.token)) {
             if (tokenArray[i + 1]) {
                 tokenArray[i + 1].category = "tag";
             }
         }
-         if ("<" == (token.token) && tokenArray[i + 1] && tokenArray[i + 2] && tokenArray[i + 2].token === "/") {
-           // console.log("close tag",token.token,tokenArray[i + 1],tokenArray[i + 2],tokenArray[i + 3]);
+        if ("<" == (token.token) && tokenArray[i + 1] && tokenArray[i + 2] && tokenArray[i + 2].token === "/") {
+            // console.log("close tag",token.token,tokenArray[i + 1],tokenArray[i + 2],tokenArray[i + 3]);
             if (tokenArray[i + 3]) {
                 tokenArray[i + 3].category = "tag";
             }
@@ -368,7 +381,7 @@ export const superHighlighter = (code: string): Line[] => {
         //add to the bigger array of tokens
         punctuationSeparated.push(tokenArray);
     }
-    console.log("<Line>", punctuationSeparated);
+    //console.log("<Line>", punctuationSeparated);
 
 
 

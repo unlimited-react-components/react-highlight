@@ -1,10 +1,11 @@
 .highlighter-container {
-  background: rgba(9, 14, 17,0.980) none repeat scroll 0% 0%;
+  background: //rgb(13, 22, 29) none repeat scroll 0% 0%;
+  rgb(40, 44, 52) none repeat scroll 0% 0%;
   color: rgb(255, 255, 255);
   border-radius: 10px;
   overflow: auto;
   line-height: 1.15;
-  -moz-tab-size: 1.5em;
+  //-moz-tab-size: 1.5em;
   --banner-display: none;
   --banner-height-normal: 0px;
   --banner-height-small: 0px;
@@ -54,21 +55,22 @@ span.token.symbol {
 
 }
 span.token.high-keyword {
-  color: rgb(231, 78, 231);
+  color: rgb(196, 92, 196);
 }
 
 span.token.keyword {
-  color: rgb(65, 110, 206);
+  color: rgb(51, 91, 177);
 }
 
 span.token.class-name {
-  color: rgb(64, 209, 141);
+  color: rgb(94, 212, 157);
 }
 span.token.punctuation {
   color: rgba(255, 255, 255, 0.58);
 }
 span.token.function {
-  color: rgb(228, 220, 117);
+  color: rgb(226, 212, 135);
+  
 }
 span.token.parameter {
   color: rgb(96, 210, 255);
@@ -89,7 +91,7 @@ span.token.tag {
 }
 
 span.token.string {
-  color: rgb(185, 103, 77);
+  color: rgb(168, 109, 91);
 }
 
 span.token.comment {
