@@ -1,0 +1,97 @@
+.highlighter-container {
+  background: rgba(9, 14, 17,0.980) none repeat scroll 0% 0%;
+  color: rgb(255, 255, 255);
+  border-radius: 10px;
+  overflow: auto;
+  line-height: 1.15;
+  -moz-tab-size: 1.5em;
+  --banner-display: none;
+  --banner-height-normal: 0px;
+  --banner-height-small: 0px;
+  margin: 0;
+  padding: 0;
+}
+.highlighter-container::after {
+  box-sizing: inherit;
+}
+.highlighter-container::before {
+  box-sizing: inherit;
+}
+.highlighter-jsx {
+  height: auto !important;
+  margin: 1rem;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+code,
+pre {
+  line-height: 20px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 1em;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, Courier New, monospace;
+}
+span.token{
+ // color: rgb(57, 188, 240);
+  color: rgb(96, 210, 255);
+}
+span.token.symbol-1 {
+  color: rgb(207, 178, 13);
+}
+span.token.symbol-2 {
+  color: rgb(212, 37, 212);
+}
+span.token.symbol-3 {
+  color: rgb(51, 141, 177);
+}
+span.token.symbol-0 {
+  color: rgb(14, 36, 83);
+}
+span.token.symbol {
+  color: rgb(207, 178, 13);
+
+}
+span.token.high-keyword {
+  color: rgb(231, 78, 231);
+}
+
+span.token.keyword {
+  color: rgb(65, 110, 206);
+}
+
+span.token.class-name {
+  color: rgb(64, 209, 141);
+}
+span.token.punctuation {
+  color: rgba(255, 255, 255, 0.58);
+}
+span.token.function {
+  color: rgb(228, 220, 117);
+}
+span.token.parameter {
+  color: rgb(96, 210, 255);
+
+
+}
+span.token.operator {
+  color: rgb(255, 255, 255);
+}
+span.token.number {
+  color: rgb(80, 223, 67);
+}
+span.token.attributeName {
+  color: rgb(36, 117, 138);
+}
+span.token.tag {
+  color: rgb(252, 146, 158);
+}
+
+span.token.string {
+  color: rgb(185, 103, 77);
+}
+
+span.token.comment {
+  color: rgb(73, 128, 66);
+}

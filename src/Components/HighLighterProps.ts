@@ -1,0 +1,1 @@
+export interface HighLighterProps { code: string; language: string }
