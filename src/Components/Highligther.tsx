@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { HighLighterProps } from "./HighLighterProps";
@@ -12,8 +12,8 @@ import {
 } from "./utils.highlight";
 
 const HighLigther = (props: HighLighterProps) => {
-  const { code, language, style } = props;
-  const [bracketLevel, setBracketLevel] = useState(0);
+  const { code,  style } = props;
+  //const [bracketLevel, setBracketLevel] = useState(0);
   // const [commentBlock, setCommentBlock] = useState(false);
   const [codeHighlighted, setCodeHighlighted] = useState(<></>);
   useEffect(() => {
@@ -33,8 +33,8 @@ const HighLigther = (props: HighLighterProps) => {
 
     //return <code> {listOfCode.map((codeLine) => codeLine)}</code>;
   };
-  const setLevelOfSymbol = (token: Token) => {};
-  const findBlockComment = (tokenList: Token[], j: number) => {
+  //const setLevelOfSymbol = (token: Token) => {};
+  /* findBlockComment = (tokenList: Token[], j: number) => {
     let token: Token = tokenList[j];
     if (
       token.token === "/" &&
@@ -43,8 +43,8 @@ const HighLigther = (props: HighLighterProps) => {
     ) {
       // setCommentBlock(true);
     }
-  };
-  const findFinalBlockComment = (tokenList: Token[], j: number) => {
+  };*/
+  /*const findFinalBlockComment = (tokenList: Token[], j: number) => {
     let token: Token = tokenList[j];
     if (
       token.token === "/" &&
@@ -53,7 +53,7 @@ const HighLigther = (props: HighLighterProps) => {
     ) {
       //setCommentBlock(false);
     }
-  };
+  };*/
   let commentBlock: boolean = false;
   let levelBracket: number = 1;
   let openBrackets: number = 0;
@@ -87,7 +87,7 @@ const HighLigther = (props: HighLighterProps) => {
     //for each line I create a div
     //for each token create a span
     let listOfSpans: React.ReactNode[] = [];
-    let block: boolean = commentBlock;
+    //let block: boolean = commentBlock;
     //console.log("found found ", block);
     for (let j = 0; j < tokenList.length; j++) {
       let spanClassName = "token";

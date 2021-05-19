@@ -31,7 +31,7 @@ const keywords = [
     "interface",
     "type", "false"
 ];
-const tokens = [
+export const tokens = [
     "keyword",
     "className",
     "punctuation",
@@ -117,7 +117,7 @@ export const makeToken = (token: string, category: string, isFunction?: boolean,
     if (openString) {
         tokenToken = { token: token, category: "string" };
     }
-    if (isFunction) {
+    else if (isFunction) {
         tokenToken = { token: token, category: "function" };
     } else {
         tokenToken = { token: token, category: category };
@@ -314,7 +314,7 @@ export const tokenizeLine = (line: string): Line => {
                 if (tokenArray[j].token !== " " && j > 0) {
                     break;
                 }
-                j--
+                j--;
             }
             if (j >= 0 && tokenArray[j].token === "import") {
                 token.category = "parameter";
@@ -352,11 +352,12 @@ export const tokenizeLine = (line: string): Line => {
  * @param code The entie code to be highlighted
  */
 export const superHighlighter = (code: string): Line[] => {
+    /*
     let bracket: number = 0;
     let squarebracket: number = 0;
     let parentesis: number = 0;
     let tag: number = 0;
-    let quote: number = 0;
+    let quote: number = 0;*/
 
     //split in lines
     const lines: string[] = code.split("\n");
