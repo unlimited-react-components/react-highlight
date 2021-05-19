@@ -23,6 +23,7 @@ Sample result:
 <p align="center">
 <img align="center" width="65%" src="https://user-images.githubusercontent.com/43678736/118860426-fdf67e00-b8a0-11eb-8601-395cde889cbc.png" alt="Sample result image">
 </p>
+
 ## Installation
 
 react-highlight is available as an [npm package](https://www.npmjs.com/package/react-highlight).
@@ -35,7 +36,7 @@ npm i @unlimited-react-components/react-highlight
 
 Here is a quick example to get you started, **it's all you need**:
 
-Interactive and live demo:
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-drop-zone-demo2-zuwr8?file=/src/App.js)
 
 ````jsx
 import "./styles.css";
