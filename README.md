@@ -38,7 +38,7 @@ npm i @unlimited-react-components/react-highlight
 
 Here is a quick example to get you started, **it's all you need**:
 
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-highlight-demo-7o9pqhttps://codesandbox.io/s/react-drop-zone-demo2-zuwr8?file=/src/App.js)
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-highlight-demo-7o9pq)
 
 ````jsx
 import "./styles.css";
