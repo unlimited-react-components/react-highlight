@@ -63,8 +63,9 @@ const punctuation: string[] = [
 ];
 const arrow: string[] = [
     ">=",
-    "=>", "<=", "!=",
-
+    "=>",
+    "<=",
+    "!=",
     "===",
     "!==",
     ">=",
@@ -72,36 +73,28 @@ const arrow: string[] = [
 ]
 const openSymbols: string[] = [
     "(",
-
     "{",
-
     "[",
-
 ];
 const closeSymbols: string[] = [
-
     ")",
-
     "}",
-
     "]",
 ];
-/* const isFunction = (word: string) => {
-    return /[A-Z]/.test(word[0]);
-}; */
-const isClassName = (word: string) => {
+
+export const isClassName = (word: string) => {
     return /[A-Z]/.test(word[0]);
 };
-const isHighKeyWord = (word: string) => {
+export const isHighKeyWord = (word: string) => {
     return highKeywords.includes(word);
 };
-const isKeyWord = (word: string) => {
+export const isKeyWord = (word: string) => {
     return keywords.includes(word);
 };
-const isPunctuation = (word: string) => {
+export const isPunctuation = (word: string) => {
     return punctuation.includes(word);
 };
-const isArrow = (word: string) => {
+export const isArrow = (word: string) => {
     return arrow.includes(word);
 };
 export const isOpenSymbol = (word: string) => {
@@ -110,8 +103,20 @@ export const isOpenSymbol = (word: string) => {
 export const isCloseSymbol = (word: string) => {
     return closeSymbols.includes(word);
 };
-
-export const makeToken = (token: string, category: string, isFunction?: boolean, openString?: boolean): Token => {
+/**
+ * Makes a Token 
+ * @param token the string representation of the token
+ * @param category the category of the token
+ * @param isFunction wheter is a function and must take this category
+ * @param openString wheter is part of a large splted string and must take this category
+ * @returns a token
+ */
+export const makeToken = (
+    token: string,
+    category: string,
+    isFunction?: boolean,
+    openString?: boolean
+): Token => {
     let tokenToken: Token;
 
     if (openString) {
@@ -126,14 +131,18 @@ export const makeToken = (token: string, category: string, isFunction?: boolean,
     //console.log("make:", tokenToken);
     return tokenToken;
 }
-
+/**
+ * @var a flag used to check whether a large splited string is being analyzed
+ */
 let openString: boolean = false;
 /**
  * 
  * @param word a word to be analized for punctuation and strings
  * @returns 
  */
-export const TOKENIZE = (currentWord: string): Token[] => {
+export const TOKENIZE = (
+    currentWord: string
+): Token[] => {
     let tokenArray: Token[] = [];
     //identif string
     //for each character
@@ -156,7 +165,6 @@ export const TOKENIZE = (currentWord: string): Token[] => {
 
             let tokenPrev: Token =
                 makeToken(acumword, "", false, openString);
-
             tokenArray.push(tokenPrev);
             acumword = "";
 
@@ -181,17 +189,15 @@ export const TOKENIZE = (currentWord: string): Token[] => {
             if (currentCharacter === "(" && tokenArray[tokenArray.length - 1].token.length > 0) {
                 tokenArray[tokenArray.length - 1].category = "function";
             }
+
             let token: Token = //{ token: currentCharacter, category: "symbol" };
                 makeToken(currentCharacter, "symbol", false, openString);
             tokenArray.push(token);
-
-
         } else {
             //                  SIMPLE WORD
             //continue accumulating
             acumword += currentCharacter;
         }
-
     }
     let tokenPrev: Token = { token: acumword, category: "" };
     makeToken(acumword, "", isFunction);
@@ -204,7 +210,9 @@ export const TOKENIZE = (currentWord: string): Token[] => {
     }
     return tokenArray;
 }
-export const tokenizeLine = (line: string): Line => {
+export const tokenizeLine = (
+    line: string
+): Line => {
     let tokenArray: Token[] = [];
 
     //separate for whitespaces
@@ -223,7 +231,7 @@ export const tokenizeLine = (line: string): Line => {
                 //console.log("wors", acumWord,currentChar);
                 acumWord = "";
             }
-            //better capture the entre string
+            //better capture the entire string
             acumWord += currentChar;
             let j = i + 1;
             while (1) {
@@ -258,12 +266,8 @@ export const tokenizeLine = (line: string): Line => {
 
     }
     superWords.push(acumWord);
-    //console.log("wors", acumWord,"out");
     words = superWords;
 
-    //console.log("wors", acumWord);
-
-    //after each word I must add a " "
     //for each word
     for (let i = 0; i < words.length; i++) {
         // a word aftersplited by " "
@@ -282,22 +286,16 @@ export const tokenizeLine = (line: string): Line => {
             tokenArray.push(tokenPrev);
         } else {
             //punctuation
-            // console.log("===>", currentWord);
             tokenArray = [...tokenArray, ...TOKENIZE(currentWord)];
         }
-
     }
-    //console.log("xx", tokenArray);
     for (let i = 0; i < tokenArray.length; i++) {
         if (tokenArray[i].token === "/") {
 
             if (tokenArray[i + 1] && tokenArray[i + 2] && tokenArray[i + 2].token === "/") {
 
                 for (let j = i; j < tokenArray.length; j++) {
-
                     tokenArray[j].category = "comment";
-                    //console.log("token comment", tokenArray[j]);
-
                 }
                 break;
             }
@@ -330,7 +328,6 @@ export const tokenizeLine = (line: string): Line => {
             }
         }
         if ("<" == (token.token) && tokenArray[i + 1] && tokenArray[i + 2] && tokenArray[i + 2].token === "/") {
-            // console.log("close tag",token.token,tokenArray[i + 1],tokenArray[i + 2],tokenArray[i + 3]);
             if (tokenArray[i + 3]) {
                 tokenArray[i + 3].category = "tag";
             }
@@ -351,55 +348,26 @@ export const tokenizeLine = (line: string): Line => {
  * Tags with Classes and HTML-tags
  * @param code The entie code to be highlighted
  */
-export const superHighlighter = (code: string): Line[] => {
-    /*
-    let bracket: number = 0;
-    let squarebracket: number = 0;
-    let parentesis: number = 0;
-    let tag: number = 0;
-    let quote: number = 0;*/
+export const superHighlighter = (
+    code: string
+): Line[] => {
+
 
     //split in lines
     const lines: string[] = code.split("\n");
+
     //separate by punctuation
     let punctuationSeparated: Line[] = [];
+
     //For each line tokenize
-    for (let i = 0; i <
-        lines.length
-        //4
-        ; i++) {
-        //for each line separate punctuation
+    for (let i = 0; i < lines.length; i++) {
         let currentLine = lines[i];
         let tokenArray = tokenizeLine(currentLine);
-        /*  for(let i=0;i<tokenArray.length;i++){
-             if(tokenArray[i].token==="/" && tokenArray[i+1].token==="/"){
-                 for(let j=i;j<tokenArray.length;j++){
-                     tokenArray[j].category="comment";
-                     break;
-                 }
-             }
-         } */
-        //add to the bigger array of tokens
+
         punctuationSeparated.push(tokenArray);
     }
-    //console.log("<Line>", punctuationSeparated);
-
-
-
 
     return punctuationSeparated;
 }
 
 
-
-/*
-const tokenize2 = (code: string) => {
-    const lines = code.split("\n");
-    let spanTokens = [];
-    for (let i = 0; i < lines.length; i++) {
-        spanTokens.push(<div className={ "token "} > { tokenize(lines[i]) } < /div>);
-    }
-
-    return <code>{ spanTokens.map((element) => element) } < /code>;
-};
-*/

@@ -76,7 +76,9 @@
     "build": "rollup -c",
     "lint": "eslint src/*.tsx --quiet --fix",
     "test": "jest",
-    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
-  },
-  "postinstall": "node postinstallSSJ.js"
+    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info",
+    "postinstall": "node postinstallSSJ.js"
+  
+  }
+  
 }
