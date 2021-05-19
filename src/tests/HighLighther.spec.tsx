@@ -45,10 +45,10 @@ it("background-color must be equal to #0d1117; by default", () => {
   const { getByTestId } = render(<HighLigther code={code_test1} />);
   const HLcontainer = getByTestId("highlighter-container");
 
-  expect(HLcontainer).toHaveStyle(`background-color : #0d1117`);
+  expect(HLcontainer).toHaveStyle(`background-color : 0d1117`);
 });
 
-it("background-color must be equal to #0d1117; by default", () => {
+it("background-color must be equal to white in style object prop", () => {
   const { getByTestId } = render(
     <HighLigther code={code_test1} style={{ backgroundColor: "white" }} />,
   );
