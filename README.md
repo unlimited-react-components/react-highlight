@@ -19,9 +19,9 @@ If you have any issue or suggestion, or wanna improve the repo adding other lang
 Highlight your JSX code with a react Highlight component.
 
 Sample result:
-
-<img align="center" width="70%" src="https://user-images.githubusercontent.com/43678736/118860426-fdf67e00-b8a0-11eb-8601-395cde889cbc.png" alt="Unlimited React components logologo">
-
+<p align="center">
+<img align="center" width="70%" src="https://user-images.githubusercontent.com/43678736/118860426-fdf67e00-b8a0-11eb-8601-395cde889cbc.png" alt="Sample result image">
+</p>
 ## Installation
 
 react-highlight is available as an [npm package](https://www.npmjs.com/package/react-highlight).
