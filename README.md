@@ -5,6 +5,7 @@
 </p>
 
 ![npm latest package](https://img.shields.io/badge/npm%40LTS-1.2.0-cyan)
+![npm latest package](https://img.shields.io/badge/npm%40last-1.2.x-yellow)
 [![dependencies Status](https://status.david-dm.org/gh/unlimited-react-components/react-highlight.svg)](https://david-dm.org/unlimited-react-components/react-highlight)
 [![Coverage Status](https://coveralls.io/repos/github/unlimited-react-components/react-highlight/badge.svg?branch=master)](https://coveralls.io/github/unlimited-react-components/react-highlight?branch=master)
 [![Build Status](https://travis-ci.org/unlimited-react-components/react-highlight.svg?branch=master)](https://travis-ci.org/unlimited-react-components/react-highlight)
@@ -20,7 +21,7 @@ Highlight your JSX code with a react Highlight component.
 
 Sample result:
 <p align="center">
-<img align="center" width="70%" src="https://user-images.githubusercontent.com/43678736/118860426-fdf67e00-b8a0-11eb-8601-395cde889cbc.png" alt="Sample result image">
+<img align="center" width="65%" src="https://user-images.githubusercontent.com/43678736/118860426-fdf67e00-b8a0-11eb-8601-395cde889cbc.png" alt="Sample result image">
 </p>
 ## Installation
 
