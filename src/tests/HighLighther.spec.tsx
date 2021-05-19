@@ -43,11 +43,11 @@ it('displays a "ThemedButton" message', () => {
 
 
 
-it("background-color must be equal to rgb(40, 44, 52) none repeat scroll 0% 0%; by default", () => {
+it("background-color must be equal to #0d1117; by default", () => {
   const { getByTestId } = render(<HighLigther code={code_test1} />);
   const HLcontainer = getByTestId("highlighter-container");
 
   expect(HLcontainer).toHaveStyle(
-    `background-color : rgb(40, 44, 52) none repeat scroll 0% 0%`,
+    `background-color : #0d1117`,
   );
 });
