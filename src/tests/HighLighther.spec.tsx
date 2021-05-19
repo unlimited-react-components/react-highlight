@@ -38,7 +38,7 @@ it('displays a "ThemedButton" message', () => {
   expect(screen.getAllByText("themes").length).toEqual(2);
   expect(screen.getAllByText("background").length).toEqual(3);
   //expect(screen.getByText("background")).toBeInTheDocument();
-  //expect(screen.getByText("}")).toBeInTheDocument();
+  expect(screen.getByText("creating")).toBeInTheDocument();
 });
 
 it("background-color must be equal to #0d1117; by default", () => {
