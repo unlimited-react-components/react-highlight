@@ -20,6 +20,7 @@ If you have any issue or suggestion, or wanna improve the repo adding other lang
 Highlight your JSX code with a react Highlight component.
 
 Sample result:
+
 <p align="center">
 <img align="center" width="65%" src="https://user-images.githubusercontent.com/43678736/118860426-fdf67e00-b8a0-11eb-8601-395cde889cbc.png" alt="Sample result image">
 </p>
@@ -32,11 +33,12 @@ react-highlight is available as an [npm package](https://www.npmjs.com/package/r
 // with npm
 npm i @unlimited-react-components/react-highlight
 ```
+
 ## Usage
 
 Here is a quick example to get you started, **it's all you need**:
 
-[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-drop-zone-demo2-zuwr8?file=/src/App.js)
+[![Edit Button](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-highlight-demo-7o9pqhttps://codesandbox.io/s/react-drop-zone-demo2-zuwr8?file=/src/App.js)
 
 ````jsx
 import "./styles.css";
@@ -81,14 +83,14 @@ export default App;
 
 ## Props
 
-| Name       | Description                                        | Default                          |
-| ------------ | ---------------------------------------------------- | ---------------------------------- |
-| `code`     | The JSX code to be highlighted.                    | ""                               |
+
+| Name       | Description                                        | Default                                    |
+| ------------ | ---------------------------------------------------- | -------------------------------------------- |
+| `code`     | The JSX code to be highlighted.                    | ""                                         |
 | `language` | The programming language                           | `JSX`: the only language supported for now |
-| `style`    | The in-line CSS object. Only affects the container | { }                              |
+| `style`    | The in-line CSS object. Only affects the container | { }                                        |
 
 ## License
 
 This project is licensed under the terms of the
 [MIT license](/LICENSE).
-
