@@ -27,7 +27,7 @@ Sample result:
 
 ## Installation
 
-react-highlight is available as an [npm package](https://www.npmjs.com/package/react-highlight).
+react-highlight is available as an [npm package](https://www.npmjs.com/package/@unlimited-react-components/react-highlight).
 
 ```sh
 // with npm
