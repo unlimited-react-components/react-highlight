@@ -2,7 +2,6 @@
 <img align="center" height="150" src="https://user-images.githubusercontent.com/43678736/118854376-49f1f480-b89a-11eb-91f6-a0f59c30c6c4.png" alt="Unlimited React components logologo">
 
 <h1 align="center"> React Highlight</h1>
-</p>
 
 ![npm latest package](https://img.shields.io/badge/npm%40LTS-1.2.0-cyan)
 ![npm latest package](https://img.shields.io/badge/npm%40last-1.2.x-yellow)
@@ -12,6 +11,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/unlimited-react-components/react-highlight/badge.svg)](https://snyk.io/test/github/unlimited-react-components/react-highlight)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/unlimited-react-components/react-highlight.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/unlimited-react-components/react-highlight/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/unlimited-react-components/react-highlight.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/unlimited-react-components/react-highlight/context:javascript)
+</p>
 
 If you have any issue or suggestion, or wanna improve the repo adding other languages highlights, let me know it on the github section: "[issues](https://github.com/unlimited-react-components/react-highlight/issues)", or make a pull request.
 
@@ -22,7 +22,7 @@ Highlight your JSX code with a react Highlight component.
 Sample result:
 
 <p align="center">
-<img align="center" width="65%" src="https://user-images.githubusercontent.com/43678736/118860426-fdf67e00-b8a0-11eb-8601-395cde889cbc.png" alt="Sample result image">
+<img align="center" width="65%" src="https://user-images.githubusercontent.com/43678736/119084603-b74f7380-b9c7-11eb-8ea3-752cf72098e5.png" alt="Sample result image">
 </p>
 
 ## Installation
@@ -45,40 +45,33 @@ import "./styles.css";
 import { Highligther } from "@unlimited-react-components/react-highlight";
 
 const App = (props) => {
-const makeCode = () => {
-  return `
-  //creating themes
-  const themes = {
-    light: {
-      foreground: "#000000",
-      background: "#eeeeee"
-    },
-  };
-    /*    this is a 
-  comment */
-  .
-  .
-  .
-  function ThemedButton() {
-    const theme = useContext(ThemeContext);  
-    return (  
-        <button style={{ 
-            background: theme.background, 
-            color: theme.foreground 
-          }}>  
-            I am styled by theme context!  
-        </button>
-    );
-  }
-  `;
-}
   return (
-    <Highligther 
-        code={makeCode()}>
-    </Highligther>
+      <Highligther 
+        code={makeCode} 
+      />
   );
 };
 export default App;
+const makeCode = `
+    // this is a sample code
+    const themes = {
+      light: { ... },
+      dark:  { ... }
+    };
+    const ThemeContext = React.createContext(themes.light);
+    function App() {
+      return (
+        <ThemeContext.Provider value={themes.dark}>
+          <Toolbar />
+        </ThemeContext.Provider>
+      );
+    }
+    function Toolbar(props) { ... }
+    
+    const ThemedButton =() => { ... }
+`;
+
+
 ````
 
 ## Props
