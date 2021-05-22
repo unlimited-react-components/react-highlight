@@ -210,6 +210,11 @@ export const TOKENIZE = (
     }
     return tokenArray;
 }
+/**
+ * 
+ * @param line 
+ * @returns 
+ */
 export const tokenizeLine = (
     line: string
 ): Line => {
@@ -316,7 +321,7 @@ export const tokenizeLine = (
             }
             if (j >= 0 && tokenArray[j].token === "import") {
                 token.category = "parameter";
-            } else if (j >= 0 && tokenArray[j].token === "const") {
+            } else if (j >= 0 && (["const", "function"].includes(tokenArray[j].token))) {
                 token.category = "function";
             } else {
                 token.category = "class-name";

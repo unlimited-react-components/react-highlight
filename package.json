@@ -1,6 +1,6 @@
 {
   "name": "@unlimited-react-components/react-highlight",
-  "version": "1.2.4",
+  "version": "1.2.6",
   "description": "Highlight JSX code",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
