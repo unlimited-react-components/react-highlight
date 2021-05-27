@@ -82,7 +82,7 @@ const makeCode = `
 | `code`     | The JSX code to be highlighted.                    | ""                                         |
 | `language` | The programming language                           | `JSX`: the only language supported for now |
 | `style`    | The in-line CSS object. Only affects the container | { }                                        |
-
+| `children`    | The JSX code to be highlighted in string format. | ""                                         |
 ## License
 
 This project is licensed under the terms of the
