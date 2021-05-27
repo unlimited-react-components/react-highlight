@@ -8,7 +8,7 @@ export interface HighLighterProps {
     /**
      * at the moment only JSX and JS is supported
      */
-    language?: string;
+    //language?: string;
     /**
      * style properties that affects only the container
      */

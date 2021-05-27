@@ -5,6 +5,7 @@
 
 
 ![npm latest package](https://img.shields.io/badge/npm%40last-1.2.7-cyan)
+[![install size](https://packagephobia.com/badge?p=@unlimited-react-components/react-highlight)](https://packagephobia.com/result?p=@unlimited-react-components/react-highlight)
 [![dependencies Status](https://status.david-dm.org/gh/unlimited-react-components/react-highlight.svg)](https://david-dm.org/unlimited-react-components/react-highlight)
 [![Coverage Status](https://coveralls.io/repos/github/unlimited-react-components/react-highlight/badge.svg?branch=master)](https://coveralls.io/github/unlimited-react-components/react-highlight?branch=master)
 [![Build Status](https://travis-ci.org/unlimited-react-components/react-highlight.svg?branch=master)](https://travis-ci.org/unlimited-react-components/react-highlight)
@@ -46,9 +47,10 @@ import { Highligther } from "@unlimited-react-components/react-highlight";
 
 const App = (props) => {
   return (
-      <Highligther 
-        code={makeCode} 
-      />
+      <Highligther>
+        {makeCode} 
+      </Highligther>
+
   );
 };
 export default App;
@@ -80,7 +82,6 @@ const makeCode = `
 | Name       | Description                                        | Default                                    |
 | ------------ | ---------------------------------------------------- | -------------------------------------------- |
 | `code`     | The JSX code to be highlighted.                    | ""                                         |
-| `language` | The programming language                           | `JSX`: the only language supported for now |
 | `style`    | The in-line CSS object. Only affects the container | { }                                        |
 | `children`    | The JSX code to be highlighted in string format. | ""                                         |
 ## License

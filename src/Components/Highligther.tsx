@@ -17,8 +17,8 @@ const HighLigther = (props: HighLighterProps) => {
   // const [commentBlock, setCommentBlock] = useState(false);
   const [codeHighlighted, setCodeHighlighted] = useState(<></>);
   useEffect(() => {
-    if (children) {
-      tokenize(children || "");
+    if (children && children.length > 0) {
+      tokenize(children);
     } else {
       tokenize(code || "");
     }
