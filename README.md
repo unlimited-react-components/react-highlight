@@ -4,7 +4,7 @@
 <h1 align="center"> React Highlight</h1>
 
 
-![npm latest package](https://img.shields.io/badge/npm%40last-1.2.7-cyan)
+![npm latest package](https://img.shields.io/badge/npm%40last-1.2.8-cyan)
 [![install size](https://packagephobia.com/badge?p=@unlimited-react-components/react-highlight)](https://packagephobia.com/result?p=@unlimited-react-components/react-highlight)
 [![dependencies Status](https://status.david-dm.org/gh/unlimited-react-components/react-highlight.svg)](https://david-dm.org/unlimited-react-components/react-highlight)
 [![Coverage Status](https://coveralls.io/repos/github/unlimited-react-components/react-highlight/badge.svg?branch=master)](https://coveralls.io/github/unlimited-react-components/react-highlight?branch=master)
