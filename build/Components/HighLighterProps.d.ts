@@ -12,4 +12,8 @@ export interface HighLighterProps {
      * style properties that affects only the container
      */
     style?: React.CSSProperties;
+    /**
+    * style properties that affects only the container
+    */
+    children?: string;
 }

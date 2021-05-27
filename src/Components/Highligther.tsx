@@ -12,24 +12,30 @@ import {
 } from "./utils.highlight";
 
 const HighLigther = (props: HighLighterProps) => {
-  const { code,  style } = props;
+  const { code, style, children } = props;
   //const [bracketLevel, setBracketLevel] = useState(0);
   // const [commentBlock, setCommentBlock] = useState(false);
   const [codeHighlighted, setCodeHighlighted] = useState(<></>);
   useEffect(() => {
-    tokenize(code || "");
-  }, [code]);
+    if (children) {
+      tokenize(children || "");
+    } else {
+      tokenize(code || "");
+    }
+  }, [code, children]);
   const tokenize = (code: string): void | React.ReactNode => {
     let listOfLines: Line[] = superHighlighter(code);
 
     let listOfCode: React.ReactNode[] = [];
     for (let i = 0; i < listOfLines.length; i++) {
       let tokenList: Token[] = listOfLines[i];
-      let lineSpan: React.ReactNode = tokenizeSpan(tokenList,i);
+      let lineSpan: React.ReactNode = tokenizeSpan(tokenList, i);
       listOfCode.push(lineSpan);
     }
 
-    setCodeHighlighted(<code key={7}> {listOfCode.map((codeLine) => codeLine)}</code>);
+    setCodeHighlighted(
+      <code key={7}> {listOfCode.map((codeLine) => codeLine)}</code>,
+    );
 
     //return <code> {listOfCode.map((codeLine) => codeLine)}</code>;
   };
@@ -82,7 +88,7 @@ const HighLigther = (props: HighLighterProps) => {
     }
     return _levelBracket;
   }
-  const tokenizeSpan = (tokenList: Token[], key:number): React.ReactNode => {
+  const tokenizeSpan = (tokenList: Token[], key: number): React.ReactNode => {
     let result: React.ReactNode;
     //for each line I create a div
     //for each token create a span
@@ -109,21 +115,26 @@ const HighLigther = (props: HighLighterProps) => {
         reduceOpenBrackets();
         spanClassName = `token symbol-${levelbefore(levelBracket)}`;
         decBrack();
-      //  console.log( "Log:" + token.token,  "level: " + levelBracket,  "openBrac: " + openBrackets,   spanClassName );
+        //  console.log( "Log:" + token.token,  "level: " + levelBracket,  "openBrac: " + openBrackets,   spanClassName );
       } else if (isOpenSymbol(token.token)) {
         openBrackets++;
         spanClassName = `token symbol-${levelBracket}`;
         incBrack();
-       // console.log( "Log:" + token.token,  "level: " + levelBracket,  "openBrac: " + openBrackets,   spanClassName );
-       
+        // console.log( "Log:" + token.token,  "level: " + levelBracket,  "openBrac: " + openBrackets,   spanClassName );
       } else if (token.category !== "") {
         spanClassName += ` ${token.category}`;
       }
-      listOfSpans.push(
-        <span key={j} className={commentBlock ? "token comment" : spanClassName}>
-          {token.token}
-        </span>
-      );
+      if (token.token.length > 0) {
+        listOfSpans.push(
+          <span
+            key={j}
+            className={commentBlock ? "token comment" : spanClassName}
+          >
+            {token.token}
+          </span>,
+        );
+      }
+
       if (
         commentBlock &&
         token.token === "/" &&
@@ -139,7 +150,11 @@ const HighLigther = (props: HighLighterProps) => {
   };
   //const codeHighlighted = tokenize(code || "");
   return (
-    <div data-testid="highlighter-container" style={style} className="highlighter-container">
+    <div
+      data-testid="highlighter-container"
+      style={style}
+      className="highlighter-container"
+    >
       <div>{codeHighlighted}</div>
     </div>
   );
