@@ -1,10 +1,10 @@
 <p align="center">
 <img align="center" height="150" src="https://user-images.githubusercontent.com/43678736/118854376-49f1f480-b89a-11eb-91f6-a0f59c30c6c4.png" alt="Unlimited React components logologo">
 
-<h1 align="center"> React Highlight</h1>
+<h1 align="center">  React Highlight ✨🖍️</h1>
 
 
-![npm latest package](https://img.shields.io/badge/npm%40last-1.2.8-cyan)
+![npm latest package](https://img.shields.io/badge/npm%40last-1.2.9-cyan)
 [![install size](https://packagephobia.com/badge?p=@unlimited-react-components/react-highlight)](https://packagephobia.com/result?p=@unlimited-react-components/react-highlight)
 [![dependencies Status](https://status.david-dm.org/gh/unlimited-react-components/react-highlight.svg)](https://david-dm.org/unlimited-react-components/react-highlight)
 [![Coverage Status](https://coveralls.io/repos/github/unlimited-react-components/react-highlight/badge.svg?branch=master)](https://coveralls.io/github/unlimited-react-components/react-highlight?branch=master)
@@ -47,9 +47,9 @@ import { Highligther } from "@unlimited-react-components/react-highlight";
 
 const App = (props) => {
   return (
-      <Highligther>
+      <Highlighter>
         {makeCode} 
-      </Highligther>
+      </Highlighter>
 
   );
 };

@@ -1,8 +1,9 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+
+import "./Highlighter.scss";
 import { HighLighterProps } from "./HighLighterProps";
-import "./Highligther.scss";
 import {
   Line,
   Token,
@@ -11,7 +12,7 @@ import {
   isCloseSymbol,
 } from "./utils.highlight";
 
-const HighLigther = (props: HighLighterProps) => {
+const HighLighter = (props: HighLighterProps) => {
   const { code, style, children } = props;
   //const [bracketLevel, setBracketLevel] = useState(0);
   // const [commentBlock, setCommentBlock] = useState(false);
@@ -160,4 +161,4 @@ const HighLigther = (props: HighLighterProps) => {
   );
 };
 
-export default HighLigther;
+export default HighLighter;

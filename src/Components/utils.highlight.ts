@@ -175,7 +175,7 @@ export const TOKENIZE = (
                 tokenArray[tokenArray.length - 1].token = tokenArray[tokenArray.length - 1].token.split(" ")[0];
             }
 
-            // Now I ad the "."
+            // Now I add the "."
             let token: Token = //{ token: currentCharacter, category: "punctuation" };
                 makeToken(currentCharacter, "punctuation", false, openString);
             tokenArray.push(token);
@@ -257,7 +257,7 @@ export const tokenizeLine = (
             //console.log("ws");
             superWords.push(acumWord);
             acumWord = "";
-            //console.log("wors", acumWord,currentChar);
+            //console.log("words", acumWord,currentChar);
             superWords.push(" ");
             acumWord = "";
 
