@@ -156,6 +156,7 @@ const HighLighter = (props: HighLighterProps) => {
       style={style}
       className="highlighter-container"
     >
+      
       <div>{codeHighlighted}</div>
     </div>
   );

@@ -1,2 +1,2 @@
-import Highligther from "./Components/Highlighter";
-export { Highligther };
+import Highlighter from "./Components/Highlighter";
+export { Highlighter };

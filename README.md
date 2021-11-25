@@ -2,7 +2,7 @@
 <img align="center" height="150" src="https://user-images.githubusercontent.com/43678736/118854376-49f1f480-b89a-11eb-91f6-a0f59c30c6c4.png" alt="Unlimited React components logologo">
 
 <h1 align="center">  React Highlight ✨🖍️</h1>
-
+</p>
 
 ![npm latest package](https://img.shields.io/badge/npm%40last-1.3.1-cyan)
 [![install size](https://packagephobia.com/badge?p=@unlimited-react-components/react-highlight)](https://packagephobia.com/result?p=@unlimited-react-components/react-highlight)
@@ -12,7 +12,7 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/unlimited-react-components/react-highlight/badge.svg)](https://snyk.io/test/github/unlimited-react-components/react-highlight)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/unlimited-react-components/react-highlight.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/unlimited-react-components/react-highlight/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/unlimited-react-components/react-highlight.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/unlimited-react-components/react-highlight/context:javascript)
-</p>
+
 
 If you have any issue or suggestion, or wanna improve the repo adding other languages highlights, let me know it on the github section: "[issues](https://github.com/unlimited-react-components/react-highlight/issues)", or make a pull request.
 
