@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { copyProps } from "./CopyProps";
 import { parseSize } from "./utils/utils";
 
-const copy: FC<copyProps> = (props: copyProps) => {
+const Copy: FC<copyProps> = (props: copyProps) => {
   const { size, color, colorFill = "none", onClick, style, className } = props;
   const finalSize = parseSize(size);
   const finalStyle = style ? style : {};
@@ -23,4 +23,4 @@ const copy: FC<copyProps> = (props: copyProps) => {
     </svg>
   );
 };
-export default copy;
+export default Copy;

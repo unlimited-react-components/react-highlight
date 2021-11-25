@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import Clipboard from "./ClipBoard";
 
 import "./Highlighter.scss";
 import { HighLighterProps } from "./HighLighterProps";
@@ -13,7 +14,7 @@ import {
 } from "./utils.highlight";
 
 const HighLighter = (props: HighLighterProps) => {
-  const { code, style, children } = props;
+  const { code, style, children ,onCopyToClipboard} = props;
   //const [bracketLevel, setBracketLevel] = useState(0);
   // const [commentBlock, setCommentBlock] = useState(false);
   const [codeHighlighted, setCodeHighlighted] = useState(<></>);
@@ -35,7 +36,7 @@ const HighLighter = (props: HighLighterProps) => {
     }
 
     setCodeHighlighted(
-      <code key={7}> {listOfCode.map((codeLine) => codeLine)}</code>,
+      <code key={7}> {listOfCode.map((codeLine) => codeLine)}</code>
     );
 
     //return <code> {listOfCode.map((codeLine) => codeLine)}</code>;
@@ -132,7 +133,7 @@ const HighLighter = (props: HighLighterProps) => {
             className={commentBlock ? "token comment" : spanClassName}
           >
             {token.token}
-          </span>,
+          </span>
         );
       }
 
@@ -150,15 +151,24 @@ const HighLighter = (props: HighLighterProps) => {
     return result;
   };
   //const codeHighlighted = tokenize(code || "");
+  const handleCopyToClipboard=(_code:string)=>{
+    onCopyToClipboard?.(_code);
+  }
   return (
-    <div
-      data-testid="highlighter-container"
-      style={style}
-      className="highlighter-container"
-    >
-      
-      <div>{codeHighlighted}</div>
-    </div>
+    <Fragment>
+      {(children || code) &&
+        (code?.length > 0 || (children as string).length > 0) && (
+          <div
+            data-testid="highlighter-container"
+            style={style}
+            className="highlighter-container"
+          >
+            <Clipboard code={children || code || ""} onCopyToClipboard={handleCopyToClipboard}/>
+
+            <>{codeHighlighted}</>
+          </div>
+        )}
+    </Fragment>
   );
 };
 

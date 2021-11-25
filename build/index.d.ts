@@ -1,2 +1,3 @@
 import Highlighter from "./Components/Highlighter";
-export { Highlighter };
+import Clipboard from "./Components/ClipBoard";
+export { Highlighter, Clipboard };

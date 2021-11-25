@@ -1,4 +1,4 @@
-import { IconProps } from "../IconProps/IconProps";
+import { IconProps } from "../IconProps";
 
 export const parseSize = (sizeStr: IconProps["size"]): number => {
     switch (sizeStr) {

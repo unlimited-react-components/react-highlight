@@ -1,7 +1,7 @@
 {
   "name": "@unlimited-react-components/react-highlight",
   "version": "2.0.0",
-  "description": "Highlight JSX code",
+  "description": "React component for highlighting js and jsx code",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
   "types": "./build/index.d.ts",
@@ -14,7 +14,8 @@
     "highlight.js",
     "react",
     "syntax",
-    "typescript"
+    "typescript",
+    "front-end"
   ],
   "author": "JinSSJ3",
   "license": "MIT",
@@ -74,7 +75,6 @@
     "build": "rollup -c",
     "lint": "eslint src/*.tsx --quiet --fix",
     "test": "jest",
-    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info",
-    "postinstall": "node postinstallSSJ.js"
+    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
   }
 }

@@ -17,4 +17,8 @@ export interface HighLighterProps {
      * style properties that affects only the container
      */
     children?: string;
+    /**
+     * event that is triggered when copy to clipboard the code
+     */
+     onCopyToClipboard?:(code:string)=>void
 }
