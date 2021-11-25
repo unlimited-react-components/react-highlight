@@ -1,7 +1,7 @@
 {
   "name": "@unlimited-react-components/react-highlight",
   "version": "2.0.0",
-  "description": "Highlight JSX code",
+  "description": "React component for highlighting js and jsx code",
   "main": "./build/index.js",
   "module": "./build/index.es.js",
   "types": "./build/index.d.ts",
@@ -14,7 +14,8 @@
     "highlight.js",
     "react",
     "syntax",
-    "typescript"
+    "typescript",
+    "front-end"
   ],
   "author": "JinSSJ3",
   "license": "MIT",
@@ -60,7 +61,7 @@
     "rollup-plugin-peer-deps-external": "^2.2.3",
     "rollup-plugin-sass": "^1.2.9",
     "rollup-plugin-terser": "^7.0.2",
-    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-typescript2": "^0.31.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^2.0.0",
     "ts-jest": "^26.4.0",
@@ -74,7 +75,6 @@
     "build": "rollup -c",
     "lint": "eslint src/*.tsx --quiet --fix",
     "test": "jest",
-    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info",
-    "postinstall": "node postinstallSSJ.js"
+    "test:coveralls": "jest --coverage && coveralls < coverage/lcov.info"
   }
 }
